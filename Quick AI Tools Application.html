@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title id="dynamicPageTitle">Quick AI Tools - Free & Private Online PDF, Image & Text Utilities</title>
+    <meta id="dynamicMetaDesc" name="description" content="100% Client-side browser utilities for PDF merging, page splitting, image compression, OCR text extraction, document conversions, and formatting. Fast, private, secure, and ready for GitHub Pages.">
+    <meta name="keywords" content="PDF tools, merge PDF, split PDF, OCR online, image compressor, rotate PDF, watermark PDF, text to PDF, client-side tools, private PDF editor">
+    <meta name="author" content="Quick AI Tools">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Quick AI Tools - Secure Client-Side Web Utilities">
+    <meta property="og:description" content="Process PDFs, compress images, and extract text directly in your browser with zero server uploads.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#1e3a8a'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Verified CDN Open-Source Libraries for Browser Processing -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.05);
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(100, 116, 139, 0.4);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(100, 116, 139, 0.6);
+        }
+        .dropzone-active {
+            border-color: #2563eb !important;
+            background-color: rgba(37, 99, 235, 0.05) !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg p-1">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Quick AI Tools</span>
+                    <span class="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">Browser Client Utilities</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 text-sm font-medium" aria-label="Main Navigation">
+                <a href="#home" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">Home</a>
+                <a href="#tools" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">All Tools</a>
+                <a href="#guides" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-book-open text-xs text-brand-500"></i> Guides & Articles
+                </a>
+                <a href="#about" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">About</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">Contact</a>
+                
+                <!-- Legal Dropdown -->
+                <div class="relative group">
+                    <button type="button" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200 flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+                        Legal <i class="fa-solid fa-chevron-down text-xs opacity-70" aria-hidden="true"></i>
+                    </button>
+                    <div class="absolute right-0 mt-1 w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl py-2 hidden group-hover:block group-focus-within:block z-50">
+                        <a href="#privacy" class="block px-4 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800 hover:text-brand-600">Privacy Policy</a>
+                        <a href="#terms" class="block px-4 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800 hover:text-brand-600">Terms of Service</a>
+                        <a href="#disclaimer" class="block px-4 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800 hover:text-brand-600">Disclaimer</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Actions & Mobile Menu Toggle -->
+            <div class="flex items-center gap-2">
+                <!-- Dark Mode Toggle -->
+                <button id="themeToggleBtn" type="button" aria-label="Toggle Color Theme" class="p-2.5 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors focus:ring-2 focus:ring-brand-500">
+                    <i class="fa-solid fa-moon dark:hidden text-lg" aria-hidden="true"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-lg text-amber-400" aria-hidden="true"></i>
+                </button>
+
+                <!-- Mobile Navigation Button -->
+                <button id="mobileMenuBtn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" class="md:hidden p-2.5 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors min-w-[44px] min-h-[44px]">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-1 transition-all">
+            <a href="#home" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
+            <a href="#tools" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">All Tools</a>
+            <a href="#guides" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">
+                <span>Guides & How-To Articles</span>
+                <span class="text-xs bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-300 px-2 py-0.5 rounded-full font-bold">10 Guides</span>
+            </a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">About Us</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Contact Us</a>
+            <div class="pt-2 border-t border-slate-100 dark:border-slate-800">
+                <span class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Legal Pages</span>
+                <a href="#privacy" class="mobile-nav-link block px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Privacy Policy</a>
+                <a href="#terms" class="mobile-nav-link block px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Terms of Service</a>
+                <a href="#disclaimer" class="mobile-nav-link block px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Disclaimer</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- VIEW 1: HOME & TOOL CATALOG -->
+        <section id="viewHome" class="space-y-10">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-12 shadow-2xl">
+                <div class="relative z-10 max-w-2xl space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-brand-200 text-xs font-semibold border border-white/10">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Private Local Browser Execution
+                    </div>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Fast, Free & Secure Web Utility Tools
+                    </h1>
+                    <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
+                        Merge PDFs, extract text with OCR, compress images, and convert files safely inside your browser. Files process locally in your device memory with zero server uploads required.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="relative mt-6 max-w-xl">
+                        <label for="toolSearchInput" class="sr-only">Search utility tools</label>
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
+                        <input id="toolSearchInput" type="search" placeholder="Search tools (e.g. merge pdf, compress image, ocr, split pdf)..." class="w-full pl-11 pr-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-slate-900/80 transition-all">
+                    </div>
+                </div>
+
+                <!-- Visual Background Accents -->
+                <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -right-4 -top-8 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+            </div>
+
+            <!-- Categories and Filter Tabs -->
+            <div id="tools" class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex flex-wrap items-center gap-2" id="categoryTabs">
+                    <button type="button" data-category="all" class="cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-600 text-white shadow-sm transition-all min-h-[40px]">
+                        All Tools
+                    </button>
+                    <button type="button" data-category="pdf" class="cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all min-h-[40px]">
+                        <i class="fa-solid fa-file-pdf text-red-500 mr-1.5" aria-hidden="true"></i> PDF Tools
+                    </button>
+                    <button type="button" data-category="image" class="cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all min-h-[40px]">
+                        <i class="fa-solid fa-image text-emerald-500 mr-1.5" aria-hidden="true"></i> Image Tools
+                    </button>
+                    <button type="button" data-category="document" class="cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all min-h-[40px]">
+                        <i class="fa-solid fa-file-lines text-blue-500 mr-1.5" aria-hidden="true"></i> Document & Text
+                    </button>
+                </div>
+
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    Showing <span id="toolCount">0</span> available tools
+                </div>
+            </div>
+
+            <!-- Tools Grid -->
+            <div id="toolsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Tools Cards Injected via JS -->
+            </div>
+
+            <!-- Editorial & Informational Content for AdSense Value -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+                <h2 class="text-xl sm:text-2xl font-bold">Why Use Local Client-Side Web Utilities?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    <div class="space-y-2">
+                        <div class="text-brand-600 dark:text-brand-400 font-bold text-base flex items-center gap-2">
+                            <i class="fa-solid fa-lock" aria-hidden="true"></i> Complete Document Privacy
+                        </div>
+                        <p>Your documents stay strictly inside your browser memory. Processing executes locally via standard WebAssembly and browser APIs without sending files to external servers.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-emerald-600 dark:text-emerald-400 font-bold text-base flex items-center gap-2">
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i> Instant Processing Speed
+                        </div>
+                        <p>Bypass bandwidth limits and upload wait times. Files are converted and manipulated at your local computer's processor speed without cloud queue delays.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-indigo-600 dark:text-indigo-400 font-bold text-base flex items-center gap-2">
+                            <i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Modern Web Standards
+                        </div>
+                        <p>Powered by vetted open-source libraries including PDF-Lib, Tesseract.js, Mammoth, and PDF.js directly loaded from secure, standard CDN repositories.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: ACTIVE TOOL WORKSPACE -->
+        <section id="viewWorkspace" class="hidden max-w-4xl mx-auto space-y-6">
+            <!-- Back Button & Header -->
+            <div class="flex items-center justify-between gap-4">
+                <a href="#home" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs sm:text-sm font-medium transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to All Tools
+                </a>
+                <span id="activeToolBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+                    Client Sandbox
+                </span>
+            </div>
+
+            <!-- Workspace Card -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+                <!-- Tool Title Header -->
+                <div class="flex items-start gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
+                    <div id="activeToolIcon" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-50 dark:bg-slate-800 text-brand-600 flex items-center justify-center text-xl sm:text-2xl shrink-0">
+                        <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="activeToolTitle" class="text-lg sm:text-2xl font-bold">Tool Title</h2>
+                        <p id="activeToolDesc" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Tool detailed explanation</p>
+                    </div>
+                </div>
+
+                <!-- Technical Disclaimers / Status Notice -->
+                <div id="toolNoticeBox" class="hidden p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 text-amber-800 dark:text-amber-200 text-xs sm:text-sm leading-relaxed">
+                    <i class="fa-solid fa-circle-info mr-2 text-amber-500" aria-hidden="true"></i>
+                    <span id="toolNoticeText">Notice message here</span>
+                </div>
+
+                <!-- Input File Upload Area -->
+                <div id="uploadSection" class="space-y-4">
+                    <label for="fileInput" class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Select Source File(s)</label>
+                    <div id="dropZone" class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 rounded-2xl p-6 sm:p-12 text-center bg-slate-50/50 dark:bg-slate-950/50 transition-all cursor-pointer relative group">
+                        <input type="file" id="fileInput" aria-label="Upload files" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                        <div class="space-y-3 pointer-events-none">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center text-lg sm:text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200">
+                                    Click to browse or drag & drop files here
+                                </p>
+                                <p id="allowedTypesText" class="text-[11px] sm:text-xs text-slate-400 mt-1">Supported formats: PDF, Images, DOCX, TXT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected Files List Container -->
+                    <div id="selectedFilesList" class="hidden space-y-2">
+                        <!-- File item rows injected here -->
+                    </div>
+                </div>
+
+                <!-- Dynamic Tool Control Options Form -->
+                <div id="toolOptionsContainer" class="hidden space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tool Settings & Configuration</label>
+                    <div id="toolOptionsFields" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Input fields dynamically inserted depending on the active tool -->
+                    </div>
+                </div>
+
+                <!-- Progress State Indicator -->
+                <div id="processingProgress" class="hidden space-y-3 py-4">
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span id="progressStatusText" class="text-brand-600 dark:text-brand-400 flex items-center gap-2">
+                            <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Processing file locally...
+                        </span>
+                        <span id="progressPercentText" class="text-slate-500">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                        <div id="progressBarFill" class="bg-brand-600 h-2.5 rounded-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Action Button Controls -->
+                <div class="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <button id="resetToolBtn" type="button" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px]">
+                        Reset / Clear
+                    </button>
+                    <button id="processFileBtn" type="button" disabled class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs sm:text-sm font-semibold shadow-md transition-all flex items-center gap-2 min-h-[44px]">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i> Run Tool
+                    </button>
+                </div>
+
+                <!-- Download / Result Panel (Strictly hidden until genuine Blob > 0 exists!) -->
+                <div id="resultCard" class="hidden p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-emerald-900 dark:text-emerald-200">Processing Completed!</h4>
+                                <p id="resultDetails" class="text-xs text-emerald-700 dark:text-emerald-400">Your output file is ready for download.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="resultPreviewContainer" class="hidden max-h-60 overflow-y-auto bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 font-mono text-xs text-slate-700 dark:text-slate-300 whitespace-pre-wrap">
+                        <!-- Optional text or preview snippet -->
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <button id="downloadResultBtn" type="button" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md transition-colors flex items-center gap-2 min-h-[44px]">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i> Download File
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error Alert Box -->
+                <div id="errorBox" class="hidden p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 text-red-800 dark:text-red-200 text-xs sm:text-sm flex items-start gap-3">
+                    <i class="fa-solid fa-circle-exclamation text-red-500 text-base mt-0.5" aria-hidden="true"></i>
+                    <div>
+                        <strong class="font-semibold block">Processing Error</strong>
+                        <span id="errorMessageText">An error occurred while processing the file.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 3: GUIDES / BLOG INDEX PAGE -->
+        <section id="viewGuides" class="hidden space-y-8 py-4">
+            <div class="max-w-3xl space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-300 text-xs font-semibold border border-brand-200 dark:border-brand-800">
+                    <i class="fa-solid fa-book-open"></i> Practical How-To Guides
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">Document & Image Utility Guides</h1>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-base leading-relaxed">
+                    Step-by-step instructions, practical workflows, and expert tips to manage PDF files, compress digital images, extract OCR text, and maintain file privacy.
+                </p>
+            </div>
+
+            <!-- Blog Search Bar -->
+            <div class="relative max-w-md">
+                <label for="guideSearchInput" class="sr-only">Search guides</label>
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
+                <input id="guideSearchInput" type="search" placeholder="Search guides & articles..." class="w-full pl-11 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+            </div>
+
+            <!-- Guides Grid Container -->
+            <div id="guidesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Guide Cards dynamically injected -->
+            </div>
+        </section>
+
+        <!-- VIEW 4: ARTICLE DETAIL VIEW -->
+        <section id="viewArticle" class="hidden max-w-4xl mx-auto space-y-8 py-4">
+            <!-- Article Navigation Header -->
+            <div class="flex items-center justify-between gap-4">
+                <a href="#guides" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs sm:text-sm font-medium transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Guides
+                </a>
+                <span id="articleCategoryBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+                    Tutorial
+                </span>
+            </div>
+
+            <!-- Article Content Container -->
+            <article id="articleContentContainer" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 space-y-8 shadow-sm">
+                <!-- Dynamic Article Injected Here -->
+            </article>
+
+            <!-- Related Guides Section -->
+            <div class="space-y-4 pt-6 border-t border-slate-200 dark:border-slate-800">
+                <h3 class="text-lg font-bold">Related How-To Guides</h3>
+                <div id="relatedGuidesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Dynamic related guide links -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 5: ABOUT PAGE -->
+        <section id="viewAbout" class="hidden max-w-4xl mx-auto space-y-8 py-4">
+            <div class="space-y-4">
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">About Quick AI Tools</h1>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-base leading-relaxed">
+                    Quick AI Tools is a client-side document processing platform designed to perform essential file conversions directly inside web browser memory without uploading sensitive files to remote servers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2">
+                    <i class="fa-solid fa-user-shield text-brand-600 text-2xl" aria-hidden="true"></i>
+                    <h2 class="font-bold text-base">Privacy-First Architecture</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">All conversion logic executes in browser memory space using JavaScript and WebAssembly sandboxes.</p>
+                </div>
+                <div class="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2">
+                    <i class="fa-solid fa-bolt text-amber-500 text-2xl" aria-hidden="true"></i>
+                    <h2 class="font-bold text-base">Zero Upload Latency</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Avoid server queues and transfer delays. Documents process at your hardware's speed.</p>
+                </div>
+                <div class="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2">
+                    <i class="fa-solid fa-code-merge text-indigo-500 text-2xl" aria-hidden="true"></i>
+                    <h2 class="font-bold text-base">Open Standards</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Built using established web standards and verified libraries like PDF-Lib, PDF.js, Tesseract.js, and Mammoth.</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
+                <h2 class="text-lg sm:text-xl font-bold">Client Execution Disclosures</h2>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Browser execution keeps document content private while operating under memory limitations.
+                </p>
+                <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2">
+                    <li><strong>PDF Tools:</strong> Merging, page extraction, watermarking, rotating, and numbering run locally via PDF-Lib.</li>
+                    <li><strong>Image Tools:</strong> Resizing, compression, and PDF packaging execute via browser HTML5 Canvas APIs. Compression converts image canvases into JPEG files with explicit quality settings.</li>
+                    <li><strong>Text & OCR:</strong> Plain text extraction parses text streams client-side. OCR image text extraction initializes Tesseract WebAssembly engine models locally.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- VIEW 6: CONTACT PAGE -->
+        <section id="viewContact" class="hidden max-w-2xl mx-auto space-y-8 py-4">
+            <div class="space-y-2 text-center">
+                <h1 class="text-2xl sm:text-3xl font-extrabold">Contact Us</h1>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Have feedback, questions, or tool suggestions? Contact our team.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-lg space-y-6">
+                <div class="p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/50 rounded-2xl text-xs text-blue-800 dark:text-blue-200 flex items-start gap-2">
+                    <i class="fa-solid fa-circle-info text-blue-500 mt-0.5" aria-hidden="true"></i>
+                    <span>Submitting this form launches your device's native email client with your pre-filled inquiry. No data is stored on remote servers.</span>
+                </div>
+
+                <form id="contactForm" class="space-y-4">
+                    <div>
+                        <label for="contactName" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+                        <input type="text" id="contactName" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none min-h-[44px]">
+                    </div>
+                    <div>
+                        <label for="contactEmail" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your Email Address</label>
+                        <input type="email" id="contactEmail" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none min-h-[44px]">
+                    </div>
+                    <div>
+                        <label for="contactSubject" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Subject</label>
+                        <select id="contactSubject" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none min-h-[44px]">
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Privacy Question">Privacy Question</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="contactMessage" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                        <textarea id="contactMessage" rows="5" required placeholder="How can we help you?" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs sm:text-sm transition-colors shadow-md min-h-[44px]">
+                        <i class="fa-solid fa-paper-plane mr-2" aria-hidden="true"></i> Launch Email Client
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- VIEW 7: PRIVACY POLICY -->
+        <section id="viewPrivacy" class="hidden max-w-4xl mx-auto space-y-6 py-4">
+            <h1 class="text-2xl sm:text-3xl font-extrabold">Privacy Policy</h1>
+            <p class="text-xs text-slate-400">Last Updated: September 2026</p>
+
+            <div class="prose dark:prose-invert max-w-none space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">1. Client-Side Processing Architecture</h2>
+                <p>Quick AI Tools is structured as a client-side application. When you process PDFs, images, or document files, operations execute locally inside your web browser. File bytes are not transmitted, uploaded, or stored on remote application servers.</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">2. Cookies and Storage Policy</h2>
+                <p>We do not use tracking cookies to retain document contents or record user history. Browser Local Storage is utilized strictly for saving user theme preferences (light vs dark mode).</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">3. Third-Party CDNs and Analytics</h2>
+                <p>To deliver open-source execution components (such as PDF-Lib, PDF.js, Tesseract.js, Mammoth, and FontAwesome), our website loads code libraries from public Content Delivery Networks (CDNs). CDN providers may capture standard connection logs (IP address, user agent) for bandwidth delivery and security monitoring.</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">4. Third-Party Advertising</h2>
+                <p>Third-party ad networks, including Google AdSense, may display advertisements on this site. Ad networks use cookies to serve advertisements based on visit history. You may manage ad settings at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" class="text-brand-600 underline">Google Ad Settings</a>.</p>
+            </div>
+        </section>
+
+        <!-- VIEW 8: TERMS OF SERVICE -->
+        <section id="viewTerms" class="hidden max-w-4xl mx-auto space-y-6 py-4">
+            <h1 class="text-2xl sm:text-3xl font-extrabold">Terms of Service</h1>
+            <p class="text-xs text-slate-400">Last Updated: September 2026</p>
+
+            <div class="prose dark:prose-invert max-w-none space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">1. Acceptance of Terms</h2>
+                <p>By accessing Quick AI Tools, you agree to these Terms of Service. If you do not agree, please discontinue using the web application.</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">2. Permitted Use</h2>
+                <p>You agree to use these tools for lawful purposes only. You must not attempt to process malicious code or violate applicable copyright law.</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">3. Service Disclaimer & Accuracy</h2>
+                <p>Tools are provided on an "AS IS" basis without warranties. File conversion results depend on source document formatting and browser rendering capabilities.</p>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">4. Limitation of Liability</h2>
+                <p>Quick AI Tools and its operators shall not be liable for data loss, document formatting errors, or service interruptions resulting from client-side execution.</p>
+            </div>
+        </section>
+
+        <!-- VIEW 9: DISCLAIMER -->
+        <section id="viewDisclaimer" class="hidden max-w-4xl mx-auto space-y-6 py-4">
+            <h1 class="text-2xl sm:text-3xl font-extrabold">General Disclaimer</h1>
+
+            <div class="prose dark:prose-invert max-w-none space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>The tools provided on Quick AI Tools are intended for general productivity and document utility purposes.</p>
+                
+                <div class="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 rounded-2xl text-amber-900 dark:text-amber-200 space-y-2">
+                    <h2 class="font-bold text-sm"><i class="fa-solid fa-triangle-exclamation mr-2" aria-hidden="true"></i> File Verification Notice</h2>
+                    <p class="text-xs">Client browser memory constraints can affect document rendering. Output layout, compression levels, or extracted text accuracy should be verified by the user prior to official use.</p>
+                </div>
+
+                <p>Always maintain backup copies of your original documents prior to performing file operations.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand Info -->
+                <div class="space-y-3 md:col-span-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-lg font-bold">Quick AI Tools</span>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
+                        A private collection of browser-native web utility tools and helpful how-to guides. Process PDFs, images, and text files locally without server uploads.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Navigation</span>
+                    <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                        <li><a href="#home" class="hover:text-brand-600 transition-colors">Home</a></li>
+                        <li><a href="#tools" class="hover:text-brand-600 transition-colors">All Tools</a></li>
+                        <li><a href="#guides" class="hover:text-brand-600 transition-colors font-medium text-brand-600 dark:text-brand-400">Guides & Articles (10)</a></li>
+                        <li><a href="#about" class="hover:text-brand-600 transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Legal & Policy</span>
+                    <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                        <li><a href="#privacy" class="hover:text-brand-600 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#terms" class="hover:text-brand-600 transition-colors">Terms of Service</a></li>
+                        <li><a href="#disclaimer" class="hover:text-brand-600 transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+                <p>&copy; 2026 Quick AI Tools. All rights reserved. Designed for client-side processing.</p>
+                <div class="flex items-center gap-4">
+                    <span><i class="fa-solid fa-lock text-emerald-500 mr-1" aria-hidden="true"></i> Client Processing</span>
+                    <span><i class="fa-solid fa-shield-halved text-brand-500 mr-1" aria-hidden="true"></i> Zero File Uploads</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Application Data & Logic -->
+    <script>
+        // Set PDF.js worker path safely
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+
+        // --- 1. TOOLS REGISTRY ---
+        const TOOLS_REGISTRY = [
+            {
+                id: 'pdf-merge',
+                name: 'Merge PDF',
+                category: 'pdf',
+                icon: 'fa-layer-group',
+                badge: 'Direct Client',
+                description: 'Combine multiple PDF documents into a single organized file in seconds.',
+                accept: '.pdf,application/pdf',
+                multiple: true,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'pdf-split',
+                name: 'Split PDF',
+                category: 'pdf',
+                icon: 'fa-scissors',
+                badge: 'Direct Client',
+                description: 'Extract specific page numbers or page ranges into a separate PDF file.',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: null,
+                options: [
+                    { id: 'pageRange', label: 'Page Range (e.g. 1-3, 5)', type: 'text', placeholder: 'e.g. 1-3', default: '1' }
+                ]
+            },
+            {
+                id: 'pdf-rotate',
+                name: 'Rotate PDF',
+                category: 'pdf',
+                icon: 'fa-rotate-right',
+                badge: 'Direct Client',
+                description: 'Rotate PDF document pages by 90, 180, or 270 degrees.',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: null,
+                options: [
+                    { id: 'angle', label: 'Rotation Angle', type: 'select', options: [
+                        { label: '90° Clockwise', value: '90' },
+                        { label: '180° Turn', value: '180' },
+                        { label: '270° Counter-Clockwise', value: '270' }
+                    ]}
+                ]
+            },
+            {
+                id: 'pdf-watermark',
+                name: 'Add Watermark',
+                category: 'pdf',
+                icon: 'fa-stamp',
+                badge: 'Direct Client',
+                description: 'Overlay custom diagonal text watermarks with opacity control.',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: null,
+                options: [
+                    { id: 'watermarkText', label: 'Watermark Text', type: 'text', placeholder: 'CONFIDENTIAL', default: 'CONFIDENTIAL' },
+                    { id: 'watermarkOpacity', label: 'Opacity (0.1 - 1.0)', type: 'number', default: '0.3', min: '0.1', max: '1.0', step: '0.1' }
+                ]
+            },
+            {
+                id: 'pdf-pagenumbers',
+                name: 'Add Page Numbers',
+                category: 'pdf',
+                icon: 'fa-list-ol',
+                badge: 'Direct Client',
+                description: 'Automatically format and append page numbers to the bottom of PDF pages.',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'pdf-to-jpg',
+                name: 'PDF to JPG',
+                category: 'pdf',
+                icon: 'fa-file-image',
+                badge: 'Direct Client',
+                description: 'Render PDF pages into JPG images (downloaded as a ZIP file).',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'image-to-pdf',
+                name: 'Image to PDF',
+                category: 'image',
+                icon: 'fa-file-pdf',
+                badge: 'Direct Client',
+                description: 'Convert JPG, PNG, or WebP images into a single formatted PDF document.',
+                accept: 'image/jpeg,image/png,image/webp',
+                multiple: true,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'image-compress',
+                name: 'Compress Image',
+                category: 'image',
+                icon: 'fa-compress',
+                badge: 'Direct Client',
+                description: 'Reduce image size by re-encoding canvas pixels into compressed JPEG format.',
+                accept: 'image/jpeg,image/png,image/webp',
+                multiple: false,
+                notice: 'Note: Output image will be converted to optimized JPEG format for best size reduction.',
+                options: [
+                    { id: 'quality', label: 'Target Quality (%)', type: 'number', default: '70', min: '10', max: '100', step: '5' }
+                ]
+            },
+            {
+                id: 'ocr-extractor',
+                name: 'OCR / Text Extractor',
+                category: 'document',
+                icon: 'fa-font',
+                badge: 'Browser OCR',
+                description: 'Extract text from scanned images or PDF documents directly inside your browser.',
+                accept: 'image/jpeg,image/png,image/webp,.pdf',
+                multiple: false,
+                notice: 'For scanned files or images, Tesseract WebAssembly engine models run in local memory.',
+                options: []
+            },
+            {
+                id: 'docx-to-txt',
+                name: 'Word (DOCX) to Text',
+                category: 'document',
+                icon: 'fa-file-word',
+                badge: 'Direct Client',
+                description: 'Extract raw text and paragraph content from DOCX document files.',
+                accept: '.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                multiple: false,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'txt-to-pdf',
+                name: 'Text / MD to PDF',
+                category: 'document',
+                icon: 'fa-file-code',
+                badge: 'Direct Client',
+                description: 'Convert plain text or Markdown files into a styled PDF with auto line wrapping.',
+                accept: '.txt,.md,text/plain,text/markdown',
+                multiple: false,
+                notice: null,
+                options: []
+            },
+            {
+                id: 'pdf-to-text',
+                name: 'PDF to Text',
+                category: 'document',
+                icon: 'fa-file-export',
+                badge: 'Text Extractor',
+                description: 'Extract readable structural text streams from PDF files into plain text (.txt).',
+                accept: '.pdf,application/pdf',
+                multiple: false,
+                notice: 'Extracts clean readable text content streams from PDF pages.',
+                options: []
+            }
+        ];
+
+        // --- 2. SEO GUIDES / ARTICLES DATABASE ---
+        const GUIDES_DATABASE = [
+            {
+                slug: 'how-to-merge-pdf-files-online',
+                title: 'How to Merge PDF Files Online for Free',
+                category: 'PDF Tools',
+                readTime: '6 min read',
+                desc: 'Learn how to combine multiple PDF documents into a single organized file in seconds using private browser processing.',
+                toolId: 'pdf-merge',
+                toolName: 'Merge PDF Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Merge PDF Files Online for Free</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 6 min read</p>
+                    
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Combining multiple PDF documents into a single cohesive file is a frequent requirement for legal agreements, job applications, financial statements, and academic research. Using browser-based utility tools, you can merge PDF documents locally without exposing personal data to third-party upload servers.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Why Combine PDF Documents?</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">When sending email attachments or uploading digital records to online application portals, handling several individual PDF files often leads to confusion. Merging files provides several key advantages:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Simplified Organization:</strong> Keep related invoices, cover letters, and resume sheets in one file.</li>
+                        <li><strong>Easier Distribution:</strong> Send one unified attachment rather than multiple separate files.</li>
+                        <li><strong>Consistent Document Flow:</strong> Ensure reviewers read pages in your exact intended sequence.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Step-by-Step Guide: Merging PDFs Step-by-Step</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li><strong>Open the Tool:</strong> Launch our free <a href="#tool-pdf-merge" class="text-brand-600 font-semibold underline">Quick AI Tools Merge PDF Tool</a>.</li>
+                        <li><strong>Select Files:</strong> Drag and drop your target PDF files into the upload box or click browse.</li>
+                        <li><strong>Review File Order:</strong> Confirm the order of the files in the selection list.</li>
+                        <li><strong>Process:</strong> Click "Run Tool" to initiate client-side merging via PDF-Lib.</li>
+                        <li><strong>Download:</strong> Once complete, click "Download File" to save your newly combined PDF.</li>
+                    </ol>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Common Mistakes to Avoid</h2>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Uploading Password-Protected Files:</strong> Encrypted PDFs require unlocking prior to merging.</li>
+                        <li><strong>Overlooking Page Orientation:</strong> Mix-and-matching landscape and portrait pages can affect document formatting. Consider running the <a href="#tool-pdf-rotate" class="text-brand-600 font-semibold underline">Rotate PDF Tool</a> first.</li>
+                    </ul>
+
+                    <div class="p-6 bg-slate-100 dark:bg-slate-800/80 rounded-2xl my-6 space-y-3">
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">Frequently Asked Questions</h3>
+                        <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <p><strong>Q: Are my documents uploaded to a remote server?</strong><br>A: No. Quick AI Tools processes PDF pages locally in your browser memory.</p>
+                            <p><strong>Q: Is there a maximum file count limit?</strong><br>A: You can merge multiple files simultaneously based on your local device RAM capacity.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                slug: 'how-to-compress-pdf',
+                title: 'How to Compress a PDF Without Losing Quality',
+                category: 'PDF Tools',
+                readTime: '5 min read',
+                desc: 'Learn strategies for reducing PDF file size for email submissions while maintaining clear document text.',
+                toolId: 'pdf-to-jpg',
+                toolName: 'PDF to Image Utility',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Compress a PDF Without Losing Quality</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 5 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Large PDF documents containing high-resolution graphics or scanned images frequently exceed email attachment caps and web upload limits. Learning how document compression works helps you shrink file size without rendering text unreadable.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Understanding PDF File Size Factors</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">A PDF file's total footprint is governed by several core elements:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Embedded Raster Images:</strong> Uncompressed DPI photographic elements account for the vast majority of bloated files.</li>
+                        <li><strong>Embedded Fonts:</strong> Full font packages included inside documents add unnecessary kilobytes.</li>
+                        <li><strong>Vector Graphic Complexity:</strong> Thousands of detailed path curves increase file size.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Effective Methods for Shrinking PDF Size</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Depending on whether your PDF consists of text or scanned graphics, consider these solutions:</p>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li><strong>Image Optimization:</strong> Convert PDF pages to JPG images using <a href="#tool-pdf-to-jpg" class="text-brand-600 font-semibold underline">PDF to JPG</a>, compress the images using <a href="#tool-image-compress" class="text-brand-600 font-semibold underline">Compress Image Tool</a>, and package them back via <a href="#tool-image-to-pdf" class="text-brand-600 font-semibold underline">Image to PDF Tool</a>.</li>
+                        <li><strong>Text Extraction:</strong> For pure text documents, convert binary PDF streams directly into plain text via <a href="#tool-pdf-to-text" class="text-brand-600 font-semibold underline">PDF to Text Tool</a>.</li>
+                    </ol>
+
+                    <div class="p-6 bg-slate-100 dark:bg-slate-800/80 rounded-2xl my-6 space-y-3">
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">Frequently Asked Questions</h3>
+                        <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <p><strong>Q: Will compressing a PDF distort text?</strong><br>A: Vector text remains sharp regardless of compression; embedded raster photos are optimized.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                slug: 'how-to-convert-jpg-to-pdf',
+                title: 'How to Convert JPG Images to PDF',
+                category: 'Image Tools',
+                readTime: '4 min read',
+                desc: 'A simple step-by-step tutorial on converting JPG, PNG, or WebP images into a clean PDF document.',
+                toolId: 'image-to-pdf',
+                toolName: 'Image to PDF Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Convert JPG Images to PDF</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 4 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Converting standalone image files into PDF formatting is standard practice when submitting scanned identification documents, receipts, design drafts, or project photos.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Why Convert Images into PDF Documents?</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">While image formats like JPG and PNG are excellent for photography, PDF offers significant advantages for formal document management:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Universal Layout Display:</strong> PDF pages render consistently across all mobile and desktop operating systems.</li>
+                        <li><strong>Multi-Page Bundling:</strong> Package multiple image scans into a single readable document.</li>
+                        <li><strong>Print-Ready Output:</strong> Standard page dimensioning avoids print sizing issues.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Step-by-Step Conversion Walkthrough</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Navigate to the <a href="#tool-image-to-pdf" class="text-brand-600 font-semibold underline">Image to PDF Tool</a>.</li>
+                        <li>Select your JPG, PNG, or WebP image files.</li>
+                        <li>Click "Run Tool" to generate the PDF page layers.</li>
+                        <li>Download your output PDF file instantly.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-split-pdf',
+                title: 'How to Split a PDF Into Separate Pages',
+                category: 'PDF Tools',
+                readTime: '5 min read',
+                desc: 'Extract specific pages or custom page ranges from multi-page PDF documents quickly and securely.',
+                toolId: 'pdf-split',
+                toolName: 'Split PDF Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Split a PDF Into Separate Pages</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 5 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Large PDF documents often contain specific pages you need to share separately—such as a single invoice page from a financial package or an individual chapter from an ebook.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Understanding PDF Page Ranges</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">When using page splitting tools, syntax flexibility helps you specify exact pages:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Single Page Extraction:</strong> Inputting <code>3</code> extracts page 3.</li>
+                        <li><strong>Sequential Range Extraction:</strong> Inputting <code>1-4</code> extracts pages 1 through 4 into a unified document.</li>
+                        <li><strong>Mixed Selection:</strong> Inputting <code>1-3, 5</code> combines pages 1, 2, 3, and 5 into a clean new document.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">How to Split PDFs Step-by-Step</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Open the <a href="#tool-pdf-split" class="text-brand-600 font-semibold underline">Split PDF Tool</a>.</li>
+                        <li>Upload your source PDF file.</li>
+                        <li>Enter your target page range in the settings box (e.g. <code>1-3</code>).</li>
+                        <li>Click "Run Tool" and save your newly split PDF.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-extract-text-from-pdf',
+                title: 'How to Extract Text From a PDF',
+                category: 'Document Tools',
+                readTime: '6 min read',
+                desc: 'Extract structural text layers and run OCR recognition on scanned PDF files using client-side WebAssembly.',
+                toolId: 'ocr-extractor',
+                toolName: 'OCR / Text Extractor',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Extract Text From a PDF</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 6 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Extracting plain text from PDF files depends on whether the source document is a digitally typed PDF or a scanned image file.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Digital PDFs vs Scanned Image PDFs</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Understanding document types helps choose the right extraction method:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Digital Text PDFs:</strong> Contain embedded font characters that can be parsed directly using our <a href="#tool-pdf-to-text" class="text-brand-600 font-semibold underline">PDF to Text Tool</a>.</li>
+                        <li><strong>Scanned Image PDFs:</strong> Consist of flat photographic pixels without font encoding. These require our <a href="#tool-ocr-extractor" class="text-brand-600 font-semibold underline">OCR Extractor Tool</a> running Tesseract WebAssembly.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Step-by-Step Text Extraction Process</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Upload your document into the <a href="#tool-ocr-extractor" class="text-brand-600 font-semibold underline">OCR / Text Extractor</a>.</li>
+                        <li>Click "Run Tool". The system automatically reads text streams or initializes OCR.</li>
+                        <li>View extracted plain text in the preview box or download the <code>.txt</code> file.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-rotate-pdf',
+                title: 'How to Rotate PDF Pages Online',
+                category: 'PDF Tools',
+                readTime: '4 min read',
+                desc: 'Fix upside-down or sideways scanned PDF pages permanently with local browser page orientation tools.',
+                toolId: 'pdf-rotate',
+                toolName: 'Rotate PDF Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Rotate PDF Pages Online</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 4 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Scanned documents often save in landscape orientation or upside down. Rotating document orientation permanently ensures your files look clean and professional when opened by clients or recruiters.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Rotation Angles Explained</h2>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>90° Clockwise:</strong> Converts sideways landscape scans into vertical portrait view.</li>
+                        <li><strong>180° Turn:</strong> Corrects upside-down document orientation.</li>
+                        <li><strong>270° Counter-Clockwise:</strong> Adjusts opposite landscape page layouts.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Quick Rotation Steps</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Open the <a href="#tool-pdf-rotate" class="text-brand-600 font-semibold underline">Rotate PDF Tool</a>.</li>
+                        <li>Upload your target PDF.</li>
+                        <li>Choose your rotation angle (90°, 180°, or 270°).</li>
+                        <li>Click "Run Tool" and download your corrected PDF file.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-add-watermark-to-pdf',
+                title: 'How to Add a Watermark to a PDF',
+                category: 'PDF Tools',
+                readTime: '5 min read',
+                desc: 'Protect sensitive documents and mark intellectual property by adding custom text watermarks to PDF files.',
+                toolId: 'pdf-watermark',
+                toolName: 'Watermark Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Add a Watermark to a PDF</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 5 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Watermarking is an effective method for marking confidential drafts, contract copies, or copyright materials before distributing them electronically.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Choosing Text & Opacity Settings</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">A good watermark remains clearly legible while keeping background document text readable:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Standard Text Stamp:</strong> Common stamps include <code>CONFIDENTIAL</code>, <code>DRAFT</code>, <code>SAMPLE COPY</code>, or <code>FOR REVIEW ONLY</code>.</li>
+                        <li><strong>Opacity Calibration:</strong> An opacity setting of <code>0.3</code> (30%) creates a subtle background watermark overlay without obscuring underlying text.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Step-by-Step Watermarking</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Open the <a href="#tool-pdf-watermark" class="text-brand-600 font-semibold underline">Add Watermark Tool</a>.</li>
+                        <li>Upload your document file.</li>
+                        <li>Enter custom watermark text and select your opacity level.</li>
+                        <li>Click "Run Tool" to download your watermarked PDF.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-convert-text-to-pdf',
+                title: 'How to Convert a Text File Into PDF',
+                category: 'Document Tools',
+                readTime: '4 min read',
+                desc: 'Turn plain text files and Markdown documents into formatted PDF files with automatic text wrapping and page creation.',
+                toolId: 'txt-to-pdf',
+                toolName: 'Text to PDF Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Convert a Text File Into PDF</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 4 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Plain text files (<code>.txt</code>) and Markdown notes (<code>.md</code>) are ideal for lightweight drafting, but lack standard page formatting for print or formal presentation. Converting text files to PDF adds fixed page structures.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Automatic Word Wrapping & Page Margins</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Our <a href="#tool-txt-to-pdf" class="text-brand-600 font-semibold underline">Text to PDF Tool</a> automatically handles document typesetting client-side:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Word Wrapping:</strong> Long lines of text wrap automatically within page margins to prevent horizontal clipping.</li>
+                        <li><strong>Page Pagination:</strong> Text content spilling over page length boundaries generates new PDF pages seamlessly.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Conversion Steps</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Upload your <code>.txt</code> or <code>.md</code> file into the <a href="#tool-txt-to-pdf" class="text-brand-600 font-semibold underline">Text / MD to PDF Tool</a>.</li>
+                        <li>Click "Run Tool" to process typography and layout.</li>
+                        <li>Download your new PDF document.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'how-to-compress-images',
+                title: 'How to Reduce Image File Size for Free',
+                category: 'Image Tools',
+                readTime: '5 min read',
+                desc: 'Learn how image compression works and reduce JPEG, PNG, or WebP photo file sizes directly in browser memory.',
+                toolId: 'image-compress',
+                toolName: 'Compress Image Tool',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">How to Reduce Image File Size for Free</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 5 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">High-resolution camera photos and uncompressed web screenshots often range from 5MB to 15MB, slowing website load times and exceeding upload thresholds. Compression reduces file size while preserving clear visual quality.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Lossy vs Lossless Image Encoding</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Canvas pixel re-encoding balances file size savings with visual fidelity:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li><strong>Target Quality Percentage:</strong> Adjusting quality to 70% typically reduces file size by 60%–80% with minimal visual difference.</li>
+                        <li><strong>Format Optimization:</strong> Re-encoding image canvas data into JPEG produces optimal size reduction for photography.</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">How to Compress Images</h2>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-600 dark:text-slate-300">
+                        <li>Launch our <a href="#tool-image-compress" class="text-brand-600 font-semibold underline">Compress Image Tool</a>.</li>
+                        <li>Upload your target JPG, PNG, or WebP file.</li>
+                        <li>Set your preferred quality percentage (default 70%).</li>
+                        <li>Click "Run Tool" and save your compressed JPEG image.</li>
+                    </ol>
+                `
+            },
+            {
+                slug: 'pdf-vs-jpg',
+                title: 'PDF vs JPG: Which File Format Should You Use?',
+                category: 'Comparisons',
+                readTime: '6 min read',
+                desc: 'Compare document and image formats to choose between PDF and JPG for printing, web sharing, and archiving.',
+                toolId: 'pdf-to-jpg',
+                toolName: 'PDF & Image Tools',
+                content: `
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">PDF vs JPG: Which File Format Should You Use?</h1>
+                    <p class="text-sm text-slate-500">Updated guide &bull; 6 min read</p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Choosing between Portable Document Format (PDF) and Joint Photographic Experts Group (JPG) depends on whether your document prioritizes searchable text vector preservation or photographic image compatibility.</p>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Comprehensive Comparison Overview</h2>
+                    <div class="overflow-x-auto my-6">
+                        <table class="w-full text-xs sm:text-sm text-left text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                                <tr>
+                                    <th class="p-3 border">Feature</th>
+                                    <th class="p-3 border">PDF Format</th>
+                                    <th class="p-3 border">JPG Image Format</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t">
+                                    <td class="p-3 border font-semibold">Primary Use</td>
+                                    <td class="p-3 border">Official documents, forms, multi-page files</td>
+                                    <td class="p-3 border">Photography, web graphics, digital artwork</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="p-3 border font-semibold">Text Searchability</td>
+                                    <td class="p-3 border">Supports searchable, highlightable text layers</td>
+                                    <td class="p-3 border">Flat image pixels (requires OCR text extraction)</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="p-3 border font-semibold">Multi-Page Support</td>
+                                    <td class="p-3 border">Yes (unlimited pages in one file)</td>
+                                    <td class="p-3 border">No (single photo frame per file)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-200 mt-6">Format Conversion Utilities</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Quick AI Tools provides free conversion utilities for both formats:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li>Convert image scans to PDF using <a href="#tool-image-to-pdf" class="text-brand-600 font-semibold underline">Image to PDF Tool</a>.</li>
+                        <li>Extract PDF pages into JPG images using <a href="#tool-pdf-to-jpg" class="text-brand-600 font-semibold underline">PDF to JPG Tool</a>.</li>
+                    </ul>
+                `
+            }
+        ];
+
+        // Global State
+        let activeTool = null;
+        let selectedFiles = [];
+        let processedBlob = null;
+        let processedFileName = '';
+
+        // --- 3. APPLICATION INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+        function initApp() {
+            renderToolsGrid();
+            renderGuidesIndex();
+            setupEventListeners();
+            handleRouting();
+            window.addEventListener('hashchange', handleRouting);
+        }
+
+        // Theme Toggle Handler
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Mobile Menu Drawer Handler
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        if (mobileMenuBtn && mobileDrawer) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileDrawer.classList.contains('hidden');
+                if (isHidden) {
+                    mobileDrawer.classList.remove('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileDrawer.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileDrawer) mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // --- 4. EVENT LISTENERS SETUP ---
+        function setupEventListeners() {
+            // Category Filter Buttons
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.cat-btn').forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white');
+                        b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    target.classList.add('bg-brand-600', 'text-white');
+                    filterTools(target.getAttribute('data-category'), document.getElementById('toolSearchInput')?.value || '');
+                });
+            });
+
+            // Search input filter for tools
+            const searchInput = document.getElementById('toolSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const activeCatBtn = document.querySelector('.cat-btn.bg-brand-600');
+                    const activeCat = activeCatBtn ? activeCatBtn.getAttribute('data-category') : 'all';
+                    filterTools(activeCat, e.target.value);
+                });
+            }
+
+            // Search input filter for guides
+            const guideSearchInput = document.getElementById('guideSearchInput');
+            if (guideSearchInput) {
+                guideSearchInput.addEventListener('input', (e) => {
+                    filterGuides(e.target.value);
+                });
+            }
+
+            // Drag & Drop File Handlers
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+
+            if (dropZone && fileInput) {
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('dropzone-active');
+                });
+
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('dropzone-active');
+                });
+
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('dropzone-active');
+                    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                        handleSelectedFiles(Array.from(e.dataTransfer.files));
+                    }
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files && e.target.files.length > 0) {
+                        handleSelectedFiles(Array.from(e.target.files));
+                    }
+                });
+            }
+
+            // Controls
+            document.getElementById('resetToolBtn')?.addEventListener('click', resetToolState);
+            document.getElementById('processFileBtn')?.addEventListener('click', executeActiveTool);
+            document.getElementById('downloadResultBtn')?.addEventListener('click', triggerDownload);
+
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('contactName')?.value.trim();
+                    const email = document.getElementById('contactEmail')?.value.trim();
+                    const subject = document.getElementById('contactSubject')?.value;
+                    const message = document.getElementById('contactMessage')?.value.trim();
+
+                    if (!name || !email || !message) {
+                        alert('Please complete all required form fields.');
+                        return;
+                    }
+
+                    const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                    const mailtoUrl = `mailto:support@quickaitools.org?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
+                    window.location.href = mailtoUrl;
+                });
+            }
+        }
+
+        // --- 5. HASH ROUTING & VIEW CONTROLLER ---
+        function handleRouting() {
+            const hash = window.location.hash || '#home';
+            
+            const views = ['viewHome', 'viewWorkspace', 'viewGuides', 'viewArticle', 'viewAbout', 'viewContact', 'viewPrivacy', 'viewTerms', 'viewDisclaimer'];
+            views.forEach(id => {
+                document.getElementById(id)?.classList.add('hidden');
+            });
+
+            if (hash.startsWith('#tool-')) {
+                const toolId = hash.replace('#tool-', '');
+                const foundTool = TOOLS_REGISTRY.find(t => t.id === toolId);
+                if (foundTool) {
+                    openToolWorkspace(foundTool);
+                    document.getElementById('viewWorkspace')?.classList.remove('hidden');
+                    updatePageMeta(`${foundTool.name} - Quick AI Tools`, foundTool.description);
+                } else {
+                    window.location.hash = '#home';
+                }
+            } else if (hash.startsWith('#guide-')) {
+                const guideSlug = hash.replace('#guide-', '');
+                const foundGuide = GUIDES_DATABASE.find(g => g.slug === guideSlug);
+                if (foundGuide) {
+                    openArticleView(foundGuide);
+                    document.getElementById('viewArticle')?.classList.remove('hidden');
+                    updatePageMeta(`${foundGuide.title} - Quick AI Tools Guide`, foundGuide.desc);
+                } else {
+                    window.location.hash = '#guides';
+                }
+            } else if (hash === '#guides') {
+                document.getElementById('viewGuides')?.classList.remove('hidden');
+                updatePageMeta('Document & Image How-To Guides - Quick AI Tools', 'Comprehensive step-by-step guides for PDF editing, image compression, OCR text extraction, and privacy.');
+            } else if (hash === '#about') {
+                document.getElementById('viewAbout')?.classList.remove('hidden');
+                updatePageMeta('About Us - Quick AI Tools', 'Learn about our private client-side document processing platform.');
+            } else if (hash === '#contact') {
+                document.getElementById('viewContact')?.classList.remove('hidden');
+                updatePageMeta('Contact Us - Quick AI Tools', 'Get in touch with our support team.');
+            } else if (hash === '#privacy') {
+                document.getElementById('viewPrivacy')?.classList.remove('hidden');
+                updatePageMeta('Privacy Policy - Quick AI Tools', 'Privacy policy regarding local browser execution.');
+            } else if (hash === '#terms') {
+                document.getElementById('viewTerms')?.classList.remove('hidden');
+                updatePageMeta('Terms of Service - Quick AI Tools', 'Terms of service and usage conditions.');
+            } else if (hash === '#disclaimer') {
+                document.getElementById('viewDisclaimer')?.classList.remove('hidden');
+                updatePageMeta('Disclaimer - Quick AI Tools', 'General disclaimer and user verification guidelines.');
+            } else {
+                document.getElementById('viewHome')?.classList.remove('hidden');
+                updatePageMeta('Quick AI Tools - Free & Private Online PDF, Image & Text Utilities', 'Process PDFs, compress images, extract OCR text safely in your browser.');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updatePageMeta(title, description) {
+            document.title = title;
+            const metaDesc = document.getElementById('dynamicMetaDesc');
+            if (metaDesc) metaDesc.setAttribute('content', description);
+        }
+
+        // --- 6. RENDER & DOM FUNCTIONS ---
+        function renderToolsGrid() {
+            const grid = document.getElementById('toolsGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            TOOLS_REGISTRY.forEach(tool => {
+                const card = document.createElement('div');
+                card.className = "group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col justify-between space-y-4 hover:-translate-y-1";
+
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-slate-800 text-brand-600 flex items-center justify-center text-xl group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid ${tool.icon}" aria-hidden="true"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                ${tool.badge}
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 group-hover:text-brand-600 transition-colors">${tool.name}</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">${tool.description}</p>
+                        </div>
+                    </div>
+                    <a href="#tool-${tool.id}" class="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:bg-brand-600 group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold text-center transition-colors block min-h-[44px] flex items-center justify-center">
+                        Open Tool <i class="fa-solid fa-arrow-right ml-1.5" aria-hidden="true"></i>
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.getElementById('toolCount').textContent = TOOLS_REGISTRY.length;
+        }
+
+        function filterTools(category, query) {
+            const normalizedQuery = (query || '').toLowerCase().trim();
+            const grid = document.getElementById('toolsGrid');
+            if (!grid) return;
+            const cards = grid.children;
+            let visibleCount = 0;
+
+            TOOLS_REGISTRY.forEach((tool, index) => {
+                const card = cards[index];
+                if (!card) return;
+
+                const matchCat = (category === 'all' || tool.category === category);
+                const matchQuery = tool.name.toLowerCase().includes(normalizedQuery) || tool.description.toLowerCase().includes(normalizedQuery);
+
+                if (matchCat && matchQuery) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            document.getElementById('toolCount').textContent = visibleCount;
+        }
+
+        function renderGuidesIndex() {
+            const grid = document.getElementById('guidesGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            GUIDES_DATABASE.forEach(guide => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between space-y-4";
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+                            <span class="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-300 font-bold">${guide.category}</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>${guide.readTime}</span>
+                        </div>
+                        <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 hover:text-brand-600 transition-colors">
+                            <a href="#guide-${guide.slug}">${guide.title}</a>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 line-clamp-3">${guide.desc}</p>
+                    </div>
+                    <div class="pt-2">
+                        <a href="#guide-${guide.slug}" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-700">
+                            Read Guide <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGuides(query) {
+            const normalizedQuery = (query || '').toLowerCase().trim();
+            const grid = document.getElementById('guidesGrid');
+            if (!grid) return;
+
+            GUIDES_DATABASE.forEach((guide, index) => {
+                const card = grid.children[index];
+                if (!card) return;
+                const match = guide.title.toLowerCase().includes(normalizedQuery) || guide.desc.toLowerCase().includes(normalizedQuery);
+                if (match) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function openArticleView(guide) {
+            const container = document.getElementById('articleContentContainer');
+            if (!container) return;
+            document.getElementById('articleCategoryBadge').textContent = guide.category;
+
+            container.innerHTML = guide.content + `
+                <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 text-xs text-slate-500">
+                        <i class="fa-solid fa-wrench text-brand-600"></i>
+                        <span>Try the corresponding tool: <strong>${guide.toolName}</strong></span>
+                    </div>
+                    <a href="#tool-${guide.toolId}" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-sm transition-colors">
+                        Launch Tool Now
+                    </a>
+                </div>
+            `;
+
+            // Related Guides Grid
+            const relatedGrid = document.getElementById('relatedGuidesGrid');
+            if (relatedGrid) {
+                relatedGrid.innerHTML = '';
+                const related = GUIDES_DATABASE.filter(g => g.slug !== guide.slug).slice(0, 2);
+                related.forEach(r => {
+                    const item = document.createElement('a');
+                    item.href = `#guide-${r.slug}`;
+                    item.className = "p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 block space-y-1 transition-all";
+                    item.innerHTML = `
+                        <span class="text-[10px] font-bold text-brand-600 uppercase">${r.category}</span>
+                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${r.title}</h4>
+                        <p class="text-[11px] text-slate-400 line-clamp-2">${r.desc}</p>
+                    `;
+                    relatedGrid.appendChild(item);
+                });
+            }
+        }
+
+        function openToolWorkspace(tool) {
+            activeTool = tool;
+            resetToolState();
+
+            document.getElementById('activeToolTitle').textContent = tool.name;
+            document.getElementById('activeToolDesc').textContent = tool.description;
+            document.getElementById('activeToolBadge').textContent = tool.badge;
+            document.getElementById('activeToolIcon').innerHTML = `<i class="fa-solid ${tool.icon}" aria-hidden="true"></i>`;
+            document.getElementById('allowedTypesText').textContent = `Accepted types: ${tool.accept}`;
+
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput) {
+                fileInput.accept = tool.accept;
+                if (tool.multiple) {
+                    fileInput.setAttribute('multiple', 'true');
+                } else {
+                    fileInput.removeAttribute('multiple');
+                }
+            }
+
+            // Notice Box
+            const noticeBox = document.getElementById('toolNoticeBox');
+            if (noticeBox) {
+                if (tool.notice) {
+                    document.getElementById('toolNoticeText').textContent = tool.notice;
+                    noticeBox.classList.remove('hidden');
+                } else {
+                    noticeBox.classList.add('hidden');
+                }
+            }
+
+            // Options container
+            const optionsContainer = document.getElementById('toolOptionsContainer');
+            const optionsFields = document.getElementById('toolOptionsFields');
+            if (optionsFields) optionsFields.innerHTML = '';
+
+            if (optionsContainer && optionsFields && tool.options && tool.options.length > 0) {
+                tool.options.forEach(opt => {
+                    const fieldWrapper = document.createElement('div');
+                    fieldWrapper.className = 'space-y-1';
+
+                    const label = document.createElement('label');
+                    label.className = 'block text-xs font-semibold text-slate-700 dark:text-slate-300';
+                    label.htmlFor = `opt_${opt.id}`;
+                    label.textContent = opt.label;
+                    fieldWrapper.appendChild(label);
+
+                    if (opt.type === 'select') {
+                        const select = document.createElement('select');
+                        select.id = `opt_${opt.id}`;
+                        select.className = 'w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-medium focus:ring-2 focus:ring-brand-500 focus:outline-none min-h-[40px]';
+                        opt.options.forEach(o => {
+                            const option = document.createElement('option');
+                            option.value = o.value;
+                            option.textContent = o.label;
+                            select.appendChild(option);
+                        });
+                        fieldWrapper.appendChild(select);
+                    } else {
+                        const input = document.createElement('input');
+                        input.id = `opt_${opt.id}`;
+                        input.type = opt.type;
+                        input.className = 'w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent text-xs font-medium focus:ring-2 focus:ring-brand-500 focus:outline-none min-h-[40px]';
+                        if (opt.placeholder) input.placeholder = opt.placeholder;
+                        if (opt.default !== undefined) input.value = opt.default;
+                        if (opt.min !== undefined) input.min = opt.min;
+                        if (opt.max !== undefined) input.max = opt.max;
+                        if (opt.step !== undefined) input.step = opt.step;
+                        fieldWrapper.appendChild(input);
+                    }
+                    optionsFields.appendChild(fieldWrapper);
+                });
+                optionsContainer.classList.remove('hidden');
+            } else if (optionsContainer) {
+                optionsContainer.classList.add('hidden');
+            }
+        }
+
+        // --- 7. WORKSPACE & TOOL EXECUTION LOGIC ---
+        function handleSelectedFiles(files) {
+            hideError();
+            if (!activeTool) return;
+
+            if (!activeTool.multiple && files.length > 1) {
+                files = [files[0]];
+            }
+
+            const validFiles = files.filter(f => {
+                if (f.size === 0) {
+                    showError(`File "${f.name}" is empty (0 bytes) and cannot be processed.`);
+                    return false;
+                }
+                return true;
+            });
+
+            if (validFiles.length === 0) return;
+
+            selectedFiles = validFiles;
+            renderSelectedFilesList();
+
+            const processBtn = document.getElementById('processFileBtn');
+            if (processBtn) processBtn.disabled = false;
+        }
+
+        function renderSelectedFilesList() {
+            const listContainer = document.getElementById('selectedFilesList');
+            if (!listContainer) return;
+            listContainer.innerHTML = '';
+
+            if (selectedFiles.length === 0) {
+                listContainer.classList.add('hidden');
+                return;
+            }
+
+            selectedFiles.forEach((file, index) => {
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-medium';
+                row.innerHTML = `
+                    <div class="flex items-center gap-2 overflow-hidden mr-2">
+                        <i class="fa-solid fa-file-lines text-brand-500" aria-hidden="true"></i>
+                        <span class="truncate text-slate-700 dark:text-slate-200">${file.name}</span>
+                        <span class="text-slate-400 font-mono">(${formatBytes(file.size)})</span>
+                    </div>
+                    <button type="button" aria-label="Remove file ${file.name}" onclick="removeSelectedFile(${index})" class="text-slate-400 hover:text-red-500 p-1 min-w-[32px] min-h-[32px]">
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                `;
+                listContainer.appendChild(row);
+            });
+
+            listContainer.classList.remove('hidden');
+        }
+
+        function removeSelectedFile(index) {
+            selectedFiles.splice(index, 1);
+            renderSelectedFilesList();
+            if (selectedFiles.length === 0) {
+                const processBtn = document.getElementById('processFileBtn');
+                if (processBtn) processBtn.disabled = true;
+            }
+        }
+
+        function resetToolState() {
+            selectedFiles = [];
+            processedBlob = null;
+            processedFileName = '';
+
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput) fileInput.value = '';
+
+            const listContainer = document.getElementById('selectedFilesList');
+            if (listContainer) {
+                listContainer.innerHTML = '';
+                listContainer.classList.add('hidden');
+            }
+
+            const processBtn = document.getElementById('processFileBtn');
+            if (processBtn) processBtn.disabled = true;
+
+            document.getElementById('processingProgress')?.classList.add('hidden');
+            document.getElementById('progressBarFill')?.style.setProperty('width', '0%');
+            document.getElementById('progressPercentText')?.setTextContent?.('0%');
+
+            document.getElementById('resultCard')?.classList.add('hidden');
+            const previewContainer = document.getElementById('resultPreviewContainer');
+            if (previewContainer) {
+                previewContainer.classList.add('hidden');
+                previewContainer.innerHTML = '';
+            }
+
+            hideError();
+        }
+
+        function updateProgress(percent, message) {
+            const container = document.getElementById('processingProgress');
+            if (container) container.classList.remove('hidden');
+
+            const barFill = document.getElementById('progressBarFill');
+            if (barFill) barFill.style.width = `${percent}%`;
+
+            const percentText = document.getElementById('progressPercentText');
+            if (percentText) percentText.textContent = `${percent}%`;
+
+            const statusText = document.getElementById('progressStatusText');
+            if (statusText && message) {
+                statusText.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1.5" aria-hidden="true"></i> ${message}`;
+            }
+        }
+
+        function showError(msg) {
+            const errBox = document.getElementById('errorBox');
+            const errText = document.getElementById('errorMessageText');
+            if (errText) errText.textContent = msg;
+            if (errBox) errBox.classList.remove('hidden');
+            document.getElementById('processingProgress')?.classList.add('hidden');
+        }
+
+        function hideError() {
+            document.getElementById('errorBox')?.classList.add('hidden');
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // --- 8. TOOL ALGORITHMS & API DISPATCH ---
+        async function executeActiveTool() {
+            if (!activeTool || selectedFiles.length === 0) {
+                showError('Please select at least one valid file before processing.');
+                return;
+            }
+
+            hideError();
+            document.getElementById('resultCard')?.classList.add('hidden');
+            const processBtn = document.getElementById('processFileBtn');
+            if (processBtn) processBtn.disabled = true;
+
+            try {
+                updateProgress(10, 'Initializing tool runner...');
+
+                let result = null;
+                switch (activeTool.id) {
+                    case 'pdf-merge':
+                        result = await processPdfMerge(selectedFiles);
+                        break;
+                    case 'pdf-split':
+                        result = await processPdfSplit(selectedFiles[0]);
+                        break;
+                    case 'pdf-rotate':
+                        result = await processPdfRotate(selectedFiles[0]);
+                        break;
+                    case 'pdf-watermark':
+                        result = await processPdfWatermark(selectedFiles[0]);
+                        break;
+                    case 'pdf-pagenumbers':
+                        result = await processPdfPageNumbers(selectedFiles[0]);
+                        break;
+                    case 'pdf-to-jpg':
+                        result = await processPdfToJpg(selectedFiles[0]);
+                        break;
+                    case 'image-to-pdf':
+                        result = await processImageToPdf(selectedFiles);
+                        break;
+                    case 'image-compress':
+                        result = await processImageCompress(selectedFiles[0]);
+                        break;
+                    case 'ocr-extractor':
+                        result = await processOcrExtractor(selectedFiles[0]);
+                        break;
+                    case 'docx-to-txt':
+                        result = await processDocxToTxt(selectedFiles[0]);
+                        break;
+                    case 'txt-to-pdf':
+                        result = await processTxtToPdf(selectedFiles[0]);
+                        break;
+                    case 'pdf-to-text':
+                        result = await processPdfToText(selectedFiles[0]);
+                        break;
+                    default:
+                        throw new Error('Selected tool algorithm is unavailable.');
+                }
+
+                if (!result || !result.blob || result.blob.size === 0) {
+                    throw new Error('Processing generated an empty or invalid output file.');
+                }
+
+                processedBlob = result.blob;
+                processedFileName = result.fileName || 'result_output';
+
+                updateProgress(100, 'Processing complete!');
+                setTimeout(() => {
+                    document.getElementById('processingProgress')?.classList.add('hidden');
+                    const resultDetails = document.getElementById('resultDetails');
+                    if (resultDetails) {
+                        resultDetails.textContent = `File: ${processedFileName} (${formatBytes(processedBlob.size)})`;
+                    }
+                    
+                    if (result.previewText) {
+                        const previewContainer = document.getElementById('resultPreviewContainer');
+                        if (previewContainer) {
+                            previewContainer.textContent = result.previewText;
+                            previewContainer.classList.remove('hidden');
+                        }
+                    }
+
+                    document.getElementById('resultCard')?.classList.remove('hidden');
+                    if (processBtn) processBtn.disabled = false;
+                }, 400);
+
+            } catch (err) {
+                console.error('Processing Exception:', err);
+                showError(err.message || 'An error occurred while processing the file.');
+                if (processBtn) processBtn.disabled = false;
+            }
+        }
+
+        // 1. PDF MERGE
+        async function processPdfMerge(files) {
+            updateProgress(20, 'Reading PDF files...');
+            const mergedPdf = await PDFLib.PDFDocument.create();
+
+            for (let i = 0; i < files.length; i++) {
+                updateProgress(20 + Math.floor((i / files.length) * 60), `Merging PDF ${i + 1} of ${files.length}...`);
+                const fileBytes = await files[i].arrayBuffer();
+                const pdf = await PDFLib.PDFDocument.load(fileBytes);
+                const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                copiedPages.forEach(page => mergedPdf.addPage(page));
+            }
+
+            updateProgress(90, 'Saving merged PDF...');
+            const pdfBytes = await mergedPdf.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: 'merged_document.pdf' };
+        }
+
+        // 2. PDF SPLIT
+        async function processPdfSplit(file) {
+            updateProgress(30, 'Parsing page structure...');
+            const fileBytes = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(fileBytes);
+            const totalPages = pdfDoc.getPageCount();
+
+            const rangeInput = (document.getElementById('opt_pageRange')?.value || '1').trim();
+            const pageIndices = parsePageRanges(rangeInput, totalPages);
+
+            if (pageIndices.length === 0) {
+                throw new Error(`Invalid page range. Document contains ${totalPages} page(s).`);
+            }
+
+            updateProgress(60, 'Extracting requested pages...');
+            const newPdf = await PDFLib.PDFDocument.create();
+            const copiedPages = await newPdf.copyPages(pdfDoc, pageIndices);
+            copiedPages.forEach(p => newPdf.addPage(p));
+
+            const pdfBytes = await newPdf.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: `split_pages_${rangeInput.replace(/[^a-zA-Z0-9]/g, '_')}.pdf` };
+        }
+
+        // 3. PDF ROTATE
+        async function processPdfRotate(file) {
+            updateProgress(30, 'Loading PDF document...');
+            const fileBytes = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(fileBytes);
+            const angleVal = parseInt(document.getElementById('opt_angle')?.value || '90', 10);
+
+            updateProgress(60, `Rotating pages by ${angleVal} degrees...`);
+            const pages = pdfDoc.getPages();
+            pages.forEach(page => {
+                const currentRotation = page.getRotation().angle;
+                page.setRotation(PDFLib.degrees((currentRotation + angleVal) % 360));
+            });
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: `rotated_${angleVal}deg_${file.name}` };
+        }
+
+        // 4. PDF WATERMARK
+        async function processPdfWatermark(file) {
+            updateProgress(30, 'Loading document...');
+            const fileBytes = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(fileBytes);
+            
+            const text = document.getElementById('opt_watermarkText')?.value || 'CONFIDENTIAL';
+            const opacity = parseFloat(document.getElementById('opt_watermarkOpacity')?.value || '0.3');
+
+            const pages = pdfDoc.getPages();
+            const font = await pdfDoc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+
+            updateProgress(60, 'Applying watermark layers...');
+            pages.forEach(page => {
+                const { width, height } = page.getSize();
+                const fontSize = Math.min(width, height) / 8;
+                const textWidth = font.widthOfTextAtSize(text, fontSize);
+
+                page.drawText(text, {
+                    x: width / 2 - textWidth / 2,
+                    y: height / 2,
+                    size: fontSize,
+                    font: font,
+                    color: PDFLib.rgb(0.7, 0.1, 0.1),
+                    opacity: opacity,
+                    rotate: PDFLib.degrees(45)
+                });
+            });
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: `watermarked_${file.name}` };
+        }
+
+        // 5. PDF PAGE NUMBERS
+        async function processPdfPageNumbers(file) {
+            updateProgress(30, 'Loading PDF document...');
+            const fileBytes = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(fileBytes);
+            const totalPages = pdfDoc.getPageCount();
+            const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+
+            updateProgress(60, 'Writing page numbers...');
+            pdfDoc.getPages().forEach((page, idx) => {
+                const { width } = page.getSize();
+                const numText = `Page ${idx + 1} of ${totalPages}`;
+                const textWidth = font.widthOfTextAtSize(numText, 10);
+                page.drawText(numText, {
+                    x: width - textWidth - 30,
+                    y: 20,
+                    size: 10,
+                    font: font,
+                    color: PDFLib.rgb(0.3, 0.3, 0.3)
+                });
+            });
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: `numbered_${file.name}` };
+        }
+
+        // 6. PDF TO JPG (Fixed viewport height bug and ZIP bundling)
+        async function processPdfToJpg(file) {
+            updateProgress(20, 'Loading PDF renderer...');
+            const fileBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: fileBuffer }).promise;
+            const numPages = pdf.numPages;
+
+            const zip = new JSZip();
+
+            for (let i = 1; i <= numPages; i++) {
+                updateProgress(20 + Math.floor((i / numPages) * 70), `Rendering page ${i} of ${numPages}...`);
+                const page = await pdf.getPage(i);
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height; // Fixed: exact viewport height
+
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                const imgBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.85));
+                zip.file(`page_${i}.jpg`, imgBlob);
+            }
+
+            updateProgress(95, 'Bundling image archive...');
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+            return { blob: zipBlob, fileName: `${file.name.replace('.pdf', '')}_images.zip` };
+        }
+
+        // 7. IMAGE TO PDF
+        async function processImageToPdf(files) {
+            updateProgress(20, 'Creating PDF document...');
+            const pdfDoc = await PDFLib.PDFDocument.create();
+
+            for (let i = 0; i < files.length; i++) {
+                updateProgress(20 + Math.floor((i / files.length) * 70), `Embedding image ${i + 1} of ${files.length}...`);
+                const file = files[i];
+                const arrayBuffer = await file.arrayBuffer();
+
+                let image;
+                if (file.type === 'image/png') {
+                    image = await pdfDoc.embedPng(arrayBuffer);
+                } else {
+                    image = await pdfDoc.embedJpg(arrayBuffer);
+                }
+
+                const page = pdfDoc.addPage([image.width, image.height]);
+                page.drawImage(image, {
+                    x: 0,
+                    y: 0,
+                    width: image.width,
+                    height: image.height
+                });
+            }
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: 'converted_images.pdf' };
+        }
+
+        // 8. IMAGE COMPRESS
+        async function processImageCompress(file) {
+            updateProgress(30, 'Reading image content...');
+            const qualityVal = parseInt(document.getElementById('opt_quality')?.value || '70', 10) / 100;
+
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+            await new Promise((res, rej) => {
+                img.onload = res;
+                img.onerror = () => rej(new Error('Failed to load image file.'));
+                img.src = url;
+            });
+
+            updateProgress(60, 'Compressing canvas pixels...');
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            const compressedBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', qualityVal));
+            URL.revokeObjectURL(url);
+
+            return { blob: compressedBlob, fileName: `compressed_${file.name.replace(/\.[^/.]+$/, '')}.jpg` };
+        }
+
+        // 9. OCR / TEXT EXTRACTOR (Handles text PDFs, images, and scanned PDFs via Tesseract fallback)
+        async function processOcrExtractor(file) {
+            updateProgress(20, 'Analyzing document format...');
+            let textContent = '';
+
+            if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
+                const buffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    updateProgress(20 + Math.floor((i / pdf.numPages) * 60), `Reading text layer from page ${i}...`);
+                    const page = await pdf.getPage(i);
+                    const tokenContent = await page.getTextContent();
+                    const pageText = tokenContent.items.map(s => s.str).join(' ');
+
+                    if (pageText.trim().length > 10) {
+                        textContent += `--- Page ${i} ---\n${pageText}\n\n`;
+                    } else {
+                        // Scanned PDF fallback to Tesseract OCR
+                        updateProgress(20 + Math.floor((i / pdf.numPages) * 60), `Running WebAssembly OCR on scanned page ${i}...`);
+                        const viewport = page.getViewport({ scale: 1.5 });
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        const ctx = canvas.getContext('2d');
+                        await page.render({ canvasContext: ctx, viewport }).promise;
+
+                        const dataUrl = canvas.toDataURL('image/png');
+                        const worker = await Tesseract.createWorker('eng');
+                        const ret = await worker.recognize(dataUrl);
+                        textContent += `--- Page ${i} (Scanned OCR) ---\n${ret.data.text}\n\n`;
+                        await worker.terminate();
+                    }
+                }
+            } else {
+                updateProgress(30, 'Running neural WebAssembly OCR on image...');
+                const worker = await Tesseract.createWorker('eng');
+                const ret = await worker.recognize(file);
+                textContent = ret.data.text;
+                await worker.terminate();
+            }
+
+            if (!textContent.trim()) {
+                throw new Error('No readable text content was detected in this file.');
+            }
+
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+            return { blob, fileName: `extracted_text_${file.name}.txt`, previewText: textContent.slice(0, 1000) };
+        }
+
+        // 10. DOCX TO TXT
+        async function processDocxToTxt(file) {
+            updateProgress(40, 'Parsing DOCX structure...');
+            const arrayBuffer = await file.arrayBuffer();
+            const result = await mammoth.extractRawText({ arrayBuffer });
+            
+            const text = result.value;
+            if (!text.trim()) {
+                throw new Error('DOCX document appears to be empty.');
+            }
+
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            return { blob, fileName: `${file.name.replace('.docx', '')}.txt`, previewText: text.slice(0, 1000) };
+        }
+
+        // 11. TXT / MD TO PDF (Fixed word wrapping & pagination)
+        async function processTxtToPdf(file) {
+            updateProgress(30, 'Reading text source...');
+            const text = await file.text();
+            
+            updateProgress(60, 'Typesetting PDF pages...');
+            const pdfDoc = await PDFLib.PDFDocument.create();
+            const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+            const fontSize = 10;
+            const margin = 40;
+            const pageWidth = 595;
+            const pageHeight = 842;
+            const maxLineWidth = pageWidth - (margin * 2);
+
+            const wrappedLines = wrapTextLines(text, font, fontSize, maxLineWidth);
+            
+            let page = pdfDoc.addPage([pageWidth, pageHeight]);
+            let y = pageHeight - margin;
+
+            wrappedLines.forEach(line => {
+                if (y < margin + 15) {
+                    page = pdfDoc.addPage([pageWidth, pageHeight]);
+                    y = pageHeight - margin;
+                }
+                page.drawText(line, { x: margin, y, size: fontSize, font, color: PDFLib.rgb(0,0,0) });
+                y -= 14;
+            });
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            return { blob, fileName: `${file.name}.pdf` };
+        }
+
+        // Helper: Word Wrap Algorithm
+        function wrapTextLines(text, font, fontSize, maxWidth) {
+            const rawLines = text.split('\n');
+            const resultLines = [];
+
+            for (const line of rawLines) {
+                if (!line.trim()) {
+                    resultLines.push('');
+                    continue;
+                }
+                const words = line.split(' ');
+                let currentLine = '';
+
+                for (const word of words) {
+                    const testLine = currentLine ? `${currentLine} ${word}` : word;
+                    const testWidth = font.widthOfTextAtSize(testLine, fontSize);
+
+                    if (testWidth <= maxWidth) {
+                        currentLine = testLine;
+                    } else {
+                        if (currentLine) resultLines.push(currentLine);
+                        currentLine = word;
+                    }
+                }
+                if (currentLine) resultLines.push(currentLine);
+            }
+            return resultLines;
+        }
+
+        // 12. PDF TO TEXT
+        async function processPdfToText(file) {
+            updateProgress(30, 'Parsing PDF text streams...');
+            const buffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+            
+            let fullText = '';
+            for (let i = 1; i <= pdf.numPages; i++) {
+                updateProgress(30 + Math.floor((i / pdf.numPages) * 60), `Reading page ${i}...`);
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map(item => item.str).join(' ');
+                fullText += `--- PAGE ${i} ---\n${pageText}\n\n`;
+            }
+
+            if (!fullText.trim()) {
+                throw new Error('No extractable text layers found in this PDF.');
+            }
+
+            const blob = new Blob([fullText], { type: 'text/plain;charset=utf-8' });
+            return { blob, fileName: `${file.name.replace('.pdf', '')}_content.txt`, previewText: fullText.slice(0, 1000) };
+        }
+
+        // Helper: Page Range Parser
+        function parsePageRanges(rangeStr, maxPages) {
+            const indices = new Set();
+            const parts = rangeStr.split(',');
+
+            parts.forEach(part => {
+                const trimmed = part.trim();
+                if (trimmed.includes('-')) {
+                    const [start, end] = trimmed.split('-').map(n => parseInt(n.trim(), 10));
+                    if (!isNaN(start) && !isNaN(end)) {
+                        for (let i = Math.max(1, start); i <= Math.min(maxPages, end); i++) {
+                            indices.add(i - 1);
+                        }
+                    }
+                } else {
+                    const pageNum = parseInt(trimmed, 10);
+                    if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= maxPages) {
+                        indices.add(pageNum - 1);
+                    }
+                }
+            });
+
+            return Array.from(indices).sort((a, b) => a - b);
+        }
+
+        function triggerDownload() {
+            if (!processedBlob || processedBlob.size === 0) {
+                showError('No valid output file is available for download.');
+                return;
+            }
+
+            const url = URL.createObjectURL(processedBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = processedFileName || 'download_result';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            setTimeout(() => URL.revokeObjectURL(url), 10000);
+        }
+    </script>
+</body>
+</html>
